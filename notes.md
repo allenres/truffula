@@ -4,6 +4,8 @@ As part of Wave 0, please fill out notes for each of the below files. They are i
 PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## App.java
+the core, where we will call our functions
+runs the program with file path and flags as arguments
 
 ## ConsoleColor.java
 
