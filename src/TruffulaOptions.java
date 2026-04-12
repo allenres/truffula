@@ -103,17 +103,19 @@ public class TruffulaOptions  {
    * @throws FileNotFoundException if the directory cannot be found or if the path points to a file
    */
   public TruffulaOptions(String[] args) throws IllegalArgumentException, FileNotFoundException {
-    if (args.length > 3 || args.length <= 0) throw new IllegalArgumentException();
     File directory = new File(args[args.length - 1]);
+    if (args.length > 3 || args.length <= 0 || !args[args.length - 1].equals(directory.getAbsolutePath())) throw new IllegalArgumentException();
     if (!directory.exists() || !directory.isDirectory()) throw new FileNotFoundException();
 
     List<String> validFlags = new ArrayList<>();
     for(String s : args) {
-      if(s.equals("-h") || s.equals("-nc")) {
+      if(s.equals("-h") || s.equals("-nc") || s.equals(directory.getAbsolutePath())) {
         validFlags.add(s);
+      } else {
+        throw new IllegalArgumentException();
       }
     }
-    
+
     root = directory;
     showHidden = validFlags.contains("-h") ? true : false;
     useColor = validFlags.contains("-nc") ? false : true;
