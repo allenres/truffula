@@ -16,6 +16,9 @@ set the console color that will then be printed in the output stream (ex System.
 print message with reset as true for default, but there is method overloading as well
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
+constructs options object with file path (root) and flags as agruments
+flags include showing hidden files, and using a color
+can set the options explicitly or through the command line user input
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
