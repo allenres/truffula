@@ -8,6 +8,8 @@ the core, where we will call our functions
 runs the program with file path and flags as arguments
 
 ## ConsoleColor.java
+an object that stores the console color (ANSI escape code)
+we will use this by prepending it to our print statements using toString or getCode
 
 ## ColorPrinter.java / ColorPrinterTest.java
 
