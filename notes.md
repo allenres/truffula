@@ -21,5 +21,7 @@ flags include showing hidden files, and using a color
 can set the options explicitly or through the command line user input
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
+prints the file directories as a tree using the options object config and supports a color sequence and sorting files
+hidden files are files that start w/ .
 
 ## AlphabeticalFileSorter.java
