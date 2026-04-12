@@ -25,3 +25,5 @@ prints the file directories as a tree using the options object config and suppor
 hidden files are files that start w/ .
 
 ## AlphabeticalFileSorter.java
+takes in an array of files, sorts them alphabetically, ignoring case
+call AlphabeticalFileSorter.sort()
