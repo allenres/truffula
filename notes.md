@@ -12,6 +12,8 @@ an object that stores the console color (ANSI escape code)
 we will use this by prepending it to our print statements using toString or getCode
 
 ## ColorPrinter.java / ColorPrinterTest.java
+set the console color that will then be printed in the output stream (ex System.out)
+print message with reset as true for default, but there is method overloading as well
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
