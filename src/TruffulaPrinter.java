@@ -113,9 +113,6 @@ public class TruffulaPrinter {
     // DO NOT USE SYSTEM.OUT.PRINTLN
     // USE out.println instead (will use your ColorPrinter)
     File root = options.getRoot();
-
-    out.println("printTree was called!");
-    out.println("My options are: " + options);
     printTree(root, 0);
   }
 
@@ -127,7 +124,7 @@ public class TruffulaPrinter {
       out.println(indent + root.getName()); 
     } else if(root.isDirectory()) {
       out.println(indent + root.getName() + "/");
-      
+
       File[] children = root.listFiles();
 
       if (children == null) return;
