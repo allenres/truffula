@@ -104,15 +104,16 @@ public class TruffulaOptions  {
    */
   public TruffulaOptions(String[] args) throws IllegalArgumentException, FileNotFoundException {
     File directory = new File(args[args.length - 1]);
-    if (args.length > 3 || args.length <= 0 || !args[args.length - 1].equals(directory.getAbsolutePath())) throw new IllegalArgumentException();
+    if (args.length > 3 || args.length <= 0) throw new IllegalArgumentException("Arguments cannot be empty or exceed 3.");
+    if(args[args.length - 1].startsWith("-")) throw new IllegalArgumentException("Path argument missing.");
     if (!directory.exists() || !directory.isDirectory()) throw new FileNotFoundException();
 
     List<String> validFlags = new ArrayList<>();
     for(String s : args) {
-      if(s.equals("-h") || s.equals("-nc") || s.equals(directory.getAbsolutePath())) {
+      if(s.equals("-h") || s.equals("-nc") || s.equals(directory.getPath())) {
         validFlags.add(s);
       } else {
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid or unknown arguments.");
       }
     }
 

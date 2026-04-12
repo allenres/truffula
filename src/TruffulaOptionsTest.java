@@ -62,7 +62,7 @@ public class TruffulaOptionsTest {
   }
 
   @Test
-  void testValidArgs(@TempDir File tempDir) throws FileNotFoundException {
+  void testValidArgsBadFlag(@TempDir File tempDir) throws FileNotFoundException {
     // Arrange: Prepare the arguments with the temp directory
     File directory = new File(tempDir, "subfolder");
     directory.mkdir();
