@@ -113,15 +113,17 @@ public class TruffulaPrinter {
     // DO NOT USE SYSTEM.OUT.PRINTLN
     // USE out.println instead (will use your ColorPrinter)
     File root = options.getRoot();
-    printTree(root, 0);
+    
+    printTree(root, 0, options.isShowHidden());
   }
 
-  private void printTree(File root, int depth) {
+  private void printTree(File root, int depth, boolean showHidden) {
     if(root == null) return;
     String indent = " ".repeat(depth * 3);
 
+    if(root.isHidden() && !showHidden) return;
     if(root.isFile()) { 
-      out.println(indent + root.getName()); 
+      out.println(indent + root.getName());
     } else if(root.isDirectory()) {
       out.println(indent + root.getName() + "/");
 
@@ -131,7 +133,7 @@ public class TruffulaPrinter {
       AlphabeticalFileSorter.sort(children);
 
       for(File file : children) {
-        printTree(file, depth + 1);
+        printTree(file, depth + 1, showHidden);
       }
     }
   }
