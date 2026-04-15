@@ -114,15 +114,17 @@ public class TruffulaPrinter {
     // USE out.println instead (will use your ColorPrinter)
     File root = options.getRoot();
     
-    printTree(root, 0, options.isShowHidden());
+    printTree(root, 0, options.isShowHidden(), options.isUseColor());
   }
 
-  private void printTree(File root, int depth, boolean showHidden) {
+  private void printTree(File root, int depth, boolean showHidden, boolean showColor) {
     if(root == null) return;
     String indent = " ".repeat(depth * 3);
 
+    if(showColor) out.setCurrentColor(DEFAULT_COLOR_SEQUENCE.get(depth % DEFAULT_COLOR_SEQUENCE.size()));
+
     if(root.isHidden() && !showHidden) return;
-    if(root.isFile()) { 
+    if(root.isFile()) {
       out.println(indent + root.getName());
     } else if(root.isDirectory()) {
       out.println(indent + root.getName() + "/");
@@ -133,7 +135,7 @@ public class TruffulaPrinter {
       AlphabeticalFileSorter.sort(children);
 
       for(File file : children) {
-        printTree(file, depth + 1, showHidden);
+        printTree(file, depth + 1, showHidden, showColor);
       }
     }
   }
